@@ -1,24 +1,20 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>{{ title }}</title>
+        <title>Page d'accueil PhilTub</title>
     </head>
     <body>
         <header>
-            <h1><a href="/">PTu Blog header</a></h1>
+            <h1><a href="/">PTu Books Blog header</a></h1>
             <p>Welcome on the web page of my web site !</p>
         </header>
 
-        <article>
-            <time>published: 24.03.2023, 12:14</time>
-            <h2><a href="">My first article</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </article>
-
-        <article>
-            <time>published: 24.03.2023, 12:14</time>
-            <h2><a href="">My second article</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </article>
+        {% for book in books %}
+            <article>
+                <time>published: {{ book.published_date }}</time>
+                <h2><a href="">{{ book.title }}</a></h2>
+                <p>{{ book.author|linebreaksbr }}</p>
+            </article>
+        {% endfor %}
     </body>
 </html>

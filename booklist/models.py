@@ -6,7 +6,8 @@ from django.utils import timezone
 
 class Book(models.Model):
     title = models.CharField(max_length=200)
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    #author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    author = models.CharField(max_length=200)
     published_date = models.DateTimeField(blank=True, null=True)
 
     def publish(self):
