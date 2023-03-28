@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Page d'accueil PhilTub</title>
-    </head>
-    <body>
-        <header>
-            <h1><a href="/">PTu Books Blog header</a></h1>
-            <p>Welcome on the web page of my web site !</p>
-        </header>
+{% extends 'booklist/base.html' %}
 
-        {% for book in books %}
-            <article>
-                <time>published: {{ book.published_date }}</time>
-                <h2><a href="">{{ book.title }}</a></h2>
-                <p>{{ book.author|linebreaksbr }}</p>
-            </article>
-        {% endfor %}
-    </body>
-</html>
+{% block content %}
+    {% for book in books %}
+        <article class="book">
+            <time class="date">
+                {{ book.published_date }}
+            </time>
+            <h2><a href="{% url 'book_detail' pk=book.pk %}">{{ book.title }}</a></h2>
+            <p>{{ book.author|linebreaksbr }}</p>
+        </article>
+    {% endfor %}
+{% endblock %}
