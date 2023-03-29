@@ -2,6 +2,13 @@
 
 {% block content %}
     <article class="book">
+        <aside class="actions">
+            {% if user.is_authenticated %}
+                <a class="btn btn-secondary" href="{% url 'book_edit' pk=book.pk %}">
+                    {% include './icons/pencil-fill.svg' %}
+                </a>
+            {% endif %}
+        </aside>
         {% if book.published_date %}
             <time class="date">
                 {{ book.published_date }}
